@@ -1,0 +1,18 @@
+Statistics for graph: 1
+Binary type: attack
+Multiclass type: xssreflected
+number of nodes: 74
+number of node types: 6
+process_memory - 71
+file - 593
+task - 6
+socket - 12
+machine - 1
+path - 2
+number of edges: 605
+number of edge types: 1
+wasDerivedFrom - 605
+number of distinct edge schemas: 3
+process_memory-wasDerivedFrom-file - 593
+socket-wasDerivedFrom-socket - 6
+socket-wasDerivedFrom-task - 6

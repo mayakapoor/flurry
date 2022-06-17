@@ -1,0 +1,45 @@
+Statistics for graph: 1
+Binary type: benign
+Multiclass type: backdoor
+number of nodes: 982
+number of node types: 9
+task - 450
+machine - 1
+path - 1
+socket - 260
+file - 764
+process_memory - 458
+pipe - 12
+link - 55
+iattr - 20
+number of edges: 2497
+number of edge types: 5
+wasInformedBy - 244
+used - 865
+wasGeneratedBy - 336
+wasAssociatedWith - 5
+wasDerivedFrom - 1047
+number of distinct edge schemas: 23
+task-wasInformedBy-task - 244
+task-used-process_memory - 155
+task-used-pipe - 3
+pipe-wasGeneratedBy-task - 3
+machine-wasAssociatedWith-task - 5
+socket-wasDerivedFrom-socket - 82
+process_memory-wasDerivedFrom-file - 565
+process_memory-wasDerivedFrom-path - 6
+process_memory-wasDerivedFrom-process_memory - 198
+task-used-file - 404
+process_memory-wasGeneratedBy-task - 151
+link-wasDerivedFrom-link - 21
+pipe-wasDerivedFrom-pipe - 5
+socket-wasGeneratedBy-task - 99
+task-used-socket - 287
+socket-wasDerivedFrom-task - 17
+file-wasDerivedFrom-file - 119
+iattr-wasGeneratedBy-task - 18
+file-wasDerivedFrom-iattr - 18
+file-wasGeneratedBy-task - 65
+file-wasDerivedFrom-process_memory - 10
+task-used-link - 16
+file-wasDerivedFrom-link - 6

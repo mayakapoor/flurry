@@ -1,0 +1,6 @@
+Statistics for graph: 3
+number of nodes: 0
+number of node types: 0
+number of edges: 0
+number of edge types: 0
+number of distinct edge schemas: 0

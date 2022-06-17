@@ -1,0 +1,27 @@
+Statistics for graph: 1
+Binary type: attack
+Multiclass type: bruteforce
+number of nodes: 142
+number of node types: 4
+process_memory - 254
+file - 1931
+task - 39
+socket - 55
+number of edges: 2026
+number of edge types: 4
+wasDerivedFrom - 1992
+used - 10
+wasGeneratedBy - 14
+wasInformedBy - 10
+number of distinct edge schemas: 11
+process_memory-wasDerivedFrom-file - 1918
+socket-wasDerivedFrom-socket - 31
+socket-wasDerivedFrom-task - 18
+process_memory-wasDerivedFrom-process_memory - 11
+task-used-process_memory - 5
+socket-wasGeneratedBy-task - 8
+task-wasInformedBy-task - 10
+task-used-socket - 5
+process_memory-wasGeneratedBy-task - 6
+file-wasDerivedFrom-file - 7
+file-wasDerivedFrom-process_memory - 7

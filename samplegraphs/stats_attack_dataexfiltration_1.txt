@@ -1,0 +1,51 @@
+Statistics for graph: 1
+Binary type: attack
+Multiclass type: dataexfiltration
+number of nodes: 743
+number of node types: 11
+task - 380
+process_memory - 379
+file - 396
+pipe - 21
+link - 63
+socket - 330
+machine - 2
+path - 12
+argv - 14
+address - 5
+iattr - 1
+number of edges: 1944
+number of edge types: 5
+used - 796
+wasGeneratedBy - 233
+wasInformedBy - 176
+wasDerivedFrom - 735
+wasAssociatedWith - 4
+number of distinct edge schemas: 27
+task-used-process_memory - 118
+task-used-pipe - 8
+pipe-wasGeneratedBy-task - 3
+process_memory-wasGeneratedBy-task - 105
+task-wasInformedBy-task - 176
+process_memory-wasDerivedFrom-file - 348
+process_memory-wasDerivedFrom-process_memory - 144
+task-used-file - 324
+pipe-wasDerivedFrom-pipe - 7
+link-wasDerivedFrom-link - 22
+socket-wasGeneratedBy-task - 117
+socket-wasDerivedFrom-socket - 118
+task-used-socket - 319
+socket-wasDerivedFrom-task - 29
+file-wasDerivedFrom-file - 21
+machine-wasAssociatedWith-task - 4
+process_memory-wasDerivedFrom-path - 11
+process_memory-wasDerivedFrom-argv - 14
+task-used-link - 27
+file-wasDerivedFrom-link - 6
+file-wasDerivedFrom-path - 7
+socket-wasDerivedFrom-address - 5
+file-wasGeneratedBy-task - 7
+iattr-wasGeneratedBy-task - 1
+file-wasDerivedFrom-iattr - 1
+process_memory-wasDerivedFrom-socket - 1
+socket-wasDerivedFrom-process_memory - 1

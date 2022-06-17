@@ -1,0 +1,63 @@
+Statistics for graph: 2
+number of nodes: 3301
+number of node types: 9
+process_memory - 4104
+file - 26835
+task - 1580
+socket - 1243
+pipe - 36
+packet - 8
+machine - 2
+path - 75
+address - 5
+number of edges: 33090
+number of edge types: 22
+sh_read - 25892
+memory_read - 426
+receive_msg - 1391
+send_msg - 384
+version_activity - 807
+version_entity - 1237
+receive_unix - 79
+memory_write - 450
+send_unix - 69
+read - 29
+sh_write - 707
+receive - 1260
+receive_packet - 5
+send_packet - 3
+send - 337
+write - 8
+open - 1
+rename - 1
+free - 1
+file_rcv - 1
+mmap_write - 1
+mmap_read - 1
+number of distinct edge schemas: 26
+process_memory-sh_read-file - 25892
+task-memory_read-process_memory - 426
+task-receive_msg-socket - 1391
+socket-send_msg-task - 384
+task-version_activity-task - 807
+socket-version_entity-socket - 131
+socket-receive_unix-socket - 79
+process_memory-version_entity-process_memory - 486
+process_memory-memory_write-task - 450
+socket-send_unix-task - 69
+file-version_entity-file - 619
+task-read-pipe - 29
+file-sh_write-process_memory - 707
+task-receive-socket - 1260
+socket-receive_packet-packet - 5
+packet-send_packet-socket - 3
+socket-send-task - 337
+pipe-write-task - 7
+pipe-version_entity-pipe - 1
+task-open-file - 1
+file-write-task - 1
+file-rename-task - 1
+file-free-file - 1
+task-file_rcv-file - 1
+task-mmap_write-file - 1
+task-mmap_read-file - 1

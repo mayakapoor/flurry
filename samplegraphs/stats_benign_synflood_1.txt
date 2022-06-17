@@ -1,0 +1,46 @@
+Statistics for graph: 1
+Binary type: benign
+Multiclass type: synflood
+number of nodes: 1018
+number of node types: 10
+path - 42
+file - 1223
+machine - 2
+argv - 4
+socket - 499
+process_memory - 625
+task - 697
+pipe - 3
+link - 22
+iattr - 10
+number of edges: 4357
+number of edge types: 5
+wasDerivedFrom - 1759
+used - 1629
+wasGeneratedBy - 570
+wasInformedBy - 394
+wasAssociatedWith - 5
+number of distinct edge schemas: 23
+file-wasDerivedFrom-path - 34
+socket-wasDerivedFrom-socket - 39
+process_memory-wasDerivedFrom-file - 1320
+task-used-process_memory - 215
+task-used-pipe - 3
+pipe-wasGeneratedBy-task - 1
+process_memory-wasGeneratedBy-task - 218
+task-wasInformedBy-task - 394
+machine-wasAssociatedWith-task - 5
+process_memory-wasDerivedFrom-path - 6
+process_memory-wasDerivedFrom-process_memory - 245
+link-wasDerivedFrom-link - 11
+task-used-file - 115
+socket-wasGeneratedBy-task - 321
+pipe-wasDerivedFrom-pipe - 1
+task-used-socket - 1296
+socket-wasDerivedFrom-task - 15
+file-wasDerivedFrom-file - 52
+process_memory-wasDerivedFrom-argv - 4
+file-wasDerivedFrom-process_memory - 24
+iattr-wasGeneratedBy-task - 8
+file-wasDerivedFrom-iattr - 8
+file-wasGeneratedBy-task - 22

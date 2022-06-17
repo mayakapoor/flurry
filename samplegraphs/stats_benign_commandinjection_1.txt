@@ -1,0 +1,36 @@
+Statistics for graph: 1
+Binary type: benign
+Multiclass type: commandinjection
+number of nodes: 251
+number of node types: 7
+file - 2923
+process_memory - 414
+path - 2
+task - 119
+socket - 161
+pipe - 2
+packet - 2
+number of edges: 3226
+number of edge types: 4
+wasDerivedFrom - 3095
+used - 42
+wasGeneratedBy - 52
+wasInformedBy - 37
+number of distinct edge schemas: 17
+process_memory-wasDerivedFrom-file - 2902
+socket-wasDerivedFrom-socket - 99
+socket-wasDerivedFrom-task - 44
+process_memory-wasDerivedFrom-process_memory - 25
+task-used-process_memory - 16
+socket-wasGeneratedBy-task - 28
+task-wasInformedBy-task - 37
+task-used-socket - 24
+process_memory-wasGeneratedBy-task - 23
+file-wasDerivedFrom-file - 11
+file-wasDerivedFrom-process_memory - 11
+task-used-file - 1
+task-used-pipe - 1
+pipe-wasGeneratedBy-task - 1
+pipe-wasDerivedFrom-pipe - 1
+packet-wasDerivedFrom-socket - 1
+socket-wasDerivedFrom-packet - 1

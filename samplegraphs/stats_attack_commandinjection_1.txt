@@ -1,0 +1,30 @@
+Statistics for graph: 1
+Binary type: attack
+Multiclass type: commandinjection
+number of nodes: 170
+number of node types: 5
+process_memory - 149
+file - 1057
+task - 40
+socket - 58
+packet - 1
+number of edges: 1161
+number of edge types: 4
+wasDerivedFrom - 1108
+used - 17
+wasGeneratedBy - 21
+wasInformedBy - 15
+number of distinct edge schemas: 13
+process_memory-wasDerivedFrom-file - 990
+task-used-file - 1
+process_memory-wasGeneratedBy-task - 8
+task-wasInformedBy-task - 15
+file-wasDerivedFrom-file - 31
+file-wasDerivedFrom-process_memory - 31
+process_memory-wasDerivedFrom-process_memory - 12
+task-used-process_memory - 9
+socket-wasGeneratedBy-task - 13
+socket-wasDerivedFrom-socket - 35
+socket-wasDerivedFrom-task - 8
+task-used-socket - 7
+socket-wasDerivedFrom-packet - 1

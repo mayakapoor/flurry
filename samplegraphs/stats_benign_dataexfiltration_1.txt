@@ -1,0 +1,39 @@
+Statistics for graph: 1
+Binary type: benign
+Multiclass type: dataexfiltration
+number of nodes: 477
+number of node types: 7
+task - 211
+socket - 136
+file - 512
+process_memory - 280
+pipe - 6
+link - 23
+iattr - 2
+number of edges: 1491
+number of edge types: 4
+used - 568
+wasGeneratedBy - 161
+wasInformedBy - 109
+wasDerivedFrom - 653
+number of distinct edge schemas: 20
+task-used-process_memory - 60
+task-used-pipe - 2
+pipe-wasGeneratedBy-task - 1
+process_memory-wasGeneratedBy-task - 75
+task-wasInformedBy-task - 109
+socket-wasDerivedFrom-socket - 21
+process_memory-wasDerivedFrom-file - 488
+process_memory-wasDerivedFrom-process_memory - 100
+task-used-file - 217
+link-wasDerivedFrom-link - 10
+pipe-wasDerivedFrom-pipe - 2
+socket-wasGeneratedBy-task - 82
+task-used-socket - 286
+socket-wasDerivedFrom-task - 4
+file-wasDerivedFrom-file - 20
+task-used-link - 3
+file-wasGeneratedBy-task - 2
+iattr-wasGeneratedBy-task - 1
+file-wasDerivedFrom-iattr - 1
+file-wasDerivedFrom-process_memory - 7

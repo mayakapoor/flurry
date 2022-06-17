@@ -1,0 +1,38 @@
+Statistics for graph: 1
+Binary type: benign
+Multiclass type: xssdom
+number of nodes: 176
+number of node types: 7
+task - 66
+file - 1085
+process_memory - 168
+socket - 18
+pipe - 6
+packet - 4
+iattr - 3
+number of edges: 1236
+number of edge types: 4
+used - 54
+wasGeneratedBy - 37
+wasInformedBy - 29
+wasDerivedFrom - 1116
+number of distinct edge schemas: 19
+task-used-process_memory - 17
+socket-wasGeneratedBy-task - 3
+task-wasInformedBy-task - 29
+process_memory-wasDerivedFrom-file - 1056
+socket-wasDerivedFrom-socket - 8
+process_memory-wasDerivedFrom-process_memory - 25
+task-used-pipe - 4
+process_memory-wasGeneratedBy-task - 19
+file-wasDerivedFrom-file - 14
+file-wasDerivedFrom-process_memory - 6
+task-used-socket - 11
+task-used-file - 22
+socket-wasDerivedFrom-packet - 2
+packet-wasDerivedFrom-socket - 2
+iattr-wasGeneratedBy-task - 3
+file-wasGeneratedBy-task - 10
+pipe-wasGeneratedBy-task - 2
+pipe-wasDerivedFrom-pipe - 2
+socket-wasDerivedFrom-task - 1

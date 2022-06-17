@@ -1,0 +1,33 @@
+Statistics for graph: 1
+Binary type: attack
+Multiclass type: xssstored
+number of nodes: 160
+number of node types: 6
+task - 66
+file - 1221
+process_memory - 179
+socket - 85
+link - 3
+pipe - 1
+number of edges: 1391
+number of edge types: 4
+used - 37
+wasGeneratedBy - 33
+wasDerivedFrom - 1297
+wasInformedBy - 24
+number of distinct edge schemas: 15
+task-used-process_memory - 13
+socket-wasGeneratedBy-task - 22
+process_memory-wasDerivedFrom-file - 1214
+socket-wasDerivedFrom-socket - 56
+task-used-file - 9
+task-used-link - 3
+process_memory-wasGeneratedBy-task - 11
+task-wasInformedBy-task - 24
+process_memory-wasDerivedFrom-process_memory - 12
+file-wasDerivedFrom-file - 2
+task-used-socket - 11
+file-wasDerivedFrom-link - 1
+socket-wasDerivedFrom-task - 11
+file-wasDerivedFrom-process_memory - 1
+task-used-pipe - 1

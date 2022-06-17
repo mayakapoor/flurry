@@ -1,0 +1,32 @@
+Statistics for graph: 1
+Binary type: benign
+Multiclass type: bruteforce
+number of nodes: 180
+number of node types: 6
+task - 62
+socket - 57
+process_memory - 398
+file - 2879
+link - 1
+pipe - 1
+number of edges: 3048
+number of edge types: 4
+used - 33
+wasGeneratedBy - 31
+wasInformedBy - 22
+wasDerivedFrom - 2962
+number of distinct edge schemas: 14
+task-used-socket - 11
+process_memory-wasGeneratedBy-task - 21
+task-wasInformedBy-task - 22
+socket-wasDerivedFrom-socket - 33
+socket-wasDerivedFrom-task - 12
+process_memory-wasDerivedFrom-process_memory - 31
+file-wasDerivedFrom-file - 11
+file-wasDerivedFrom-process_memory - 13
+process_memory-wasDerivedFrom-file - 2862
+task-used-process_memory - 10
+socket-wasGeneratedBy-task - 10
+task-used-link - 1
+task-used-file - 10
+task-used-pipe - 1

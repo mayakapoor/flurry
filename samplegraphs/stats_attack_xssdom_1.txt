@@ -1,0 +1,27 @@
+Statistics for graph: 1
+Binary type: attack
+Multiclass type: xssdom
+number of nodes: 163
+number of node types: 4
+file - 1897
+process_memory - 255
+task - 37
+socket - 47
+number of edges: 1984
+number of edge types: 4
+wasDerivedFrom - 1945
+wasGeneratedBy - 16
+wasInformedBy - 12
+used - 11
+number of distinct edge schemas: 11
+process_memory-wasDerivedFrom-file - 1883
+process_memory-wasGeneratedBy-task - 9
+process_memory-wasDerivedFrom-process_memory - 12
+task-wasInformedBy-task - 12
+socket-wasGeneratedBy-task - 7
+socket-wasDerivedFrom-socket - 25
+task-used-socket - 6
+socket-wasDerivedFrom-task - 9
+file-wasDerivedFrom-file - 8
+file-wasDerivedFrom-process_memory - 8
+task-used-process_memory - 5

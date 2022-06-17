@@ -1,0 +1,52 @@
+Statistics for graph: 1
+Binary type: attack
+Multiclass type: backdoor
+number of nodes: 960
+number of node types: 11
+task - 482
+socket - 397
+file - 691
+process_memory - 471
+pipe - 16
+link - 66
+machine - 2
+path - 14
+argv - 16
+address - 8
+iattr - 2
+number of edges: 2765
+number of edge types: 5
+used - 1087
+wasGeneratedBy - 326
+wasInformedBy - 242
+wasDerivedFrom - 1103
+wasAssociatedWith - 7
+number of distinct edge schemas: 28
+task-used-process_memory - 154
+task-used-pipe - 8
+pipe-wasGeneratedBy-task - 3
+process_memory-wasGeneratedBy-task - 140
+task-wasInformedBy-task - 242
+socket-wasDerivedFrom-socket - 129
+process_memory-wasDerivedFrom-file - 644
+process_memory-wasDerivedFrom-process_memory - 178
+task-used-file - 378
+pipe-wasDerivedFrom-pipe - 6
+link-wasDerivedFrom-link - 21
+socket-wasGeneratedBy-task - 171
+task-used-socket - 516
+socket-wasDerivedFrom-task - 31
+file-wasDerivedFrom-file - 32
+machine-wasAssociatedWith-task - 7
+process_memory-wasDerivedFrom-path - 12
+process_memory-wasDerivedFrom-argv - 16
+task-used-link - 31
+file-wasDerivedFrom-link - 6
+file-wasDerivedFrom-path - 9
+socket-wasDerivedFrom-address - 8
+file-wasGeneratedBy-task - 10
+iattr-wasGeneratedBy-task - 2
+file-wasDerivedFrom-iattr - 2
+link-wasDerivedFrom-path - 1
+process_memory-wasDerivedFrom-socket - 1
+file-wasDerivedFrom-process_memory - 7

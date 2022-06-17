@@ -1,0 +1,32 @@
+Statistics for graph: 1
+Binary type: benign
+Multiclass type: sqlinjection
+number of nodes: 181
+number of node types: 6
+file - 2123
+process_memory - 300
+task - 65
+socket - 91
+packet - 6
+pipe - 1
+number of edges: 2293
+number of edge types: 4
+wasDerivedFrom - 2219
+used - 33
+wasGeneratedBy - 23
+wasInformedBy - 18
+number of distinct edge schemas: 14
+process_memory-wasDerivedFrom-file - 2109
+socket-wasDerivedFrom-socket - 50
+socket-wasDerivedFrom-task - 20
+process_memory-wasDerivedFrom-process_memory - 18
+task-used-process_memory - 8
+task-used-socket - 24
+socket-wasGeneratedBy-task - 12
+process_memory-wasGeneratedBy-task - 11
+task-wasInformedBy-task - 18
+file-wasDerivedFrom-file - 7
+file-wasDerivedFrom-process_memory - 9
+socket-wasDerivedFrom-packet - 4
+packet-wasDerivedFrom-socket - 2
+task-used-pipe - 1

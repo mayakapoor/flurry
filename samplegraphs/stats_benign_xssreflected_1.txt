@@ -1,0 +1,29 @@
+Statistics for graph: 1
+Binary type: benign
+Multiclass type: xssreflected
+number of nodes: 213
+number of node types: 4
+file - 2514
+process_memory - 360
+task - 112
+socket - 120
+number of edges: 2770
+number of edge types: 4
+wasDerivedFrom - 2648
+used - 37
+wasInformedBy - 37
+wasGeneratedBy - 48
+number of distinct edge schemas: 13
+process_memory-wasDerivedFrom-file - 2484
+socket-wasDerivedFrom-socket - 72
+socket-wasDerivedFrom-task - 31
+task-used-process_memory - 19
+task-wasInformedBy-task - 37
+file-wasDerivedFrom-process_memory - 14
+process_memory-wasDerivedFrom-process_memory - 33
+socket-wasGeneratedBy-task - 23
+task-used-socket - 16
+process_memory-wasGeneratedBy-task - 24
+file-wasDerivedFrom-file - 14
+task-used-file - 2
+file-wasGeneratedBy-task - 1
