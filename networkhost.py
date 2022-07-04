@@ -4,8 +4,9 @@ import host
 import warnings
 from pathlib import Path
 
-from flake.filters.camflow.w3cfilter import W3CFilter
-from flake.bank import Bank
+import flake.src.flake as flake
+import flake.src.flake.filters.camflow as camflow
+
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
@@ -88,8 +89,8 @@ def main():
     prov_level = host.get_level(cfg_txt, cfg_lines, cfg_custom_count)
     num_loops = host.get_loops(cfg_txt, cfg_lines, cfg_custom_count)
 
-    filter = W3CFilter()
-    host.run(Bank(filter), scripts, actions, num_loops, prov_level)
+    filter = camflow.W3CFilter()
+    host.run(flake.Bank(filter), scripts, actions, num_loops, prov_level)
     if cfg_txt == "":
         host.save_config(action_str, term_customs, num_loops, prov_level)
 

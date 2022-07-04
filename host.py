@@ -1,10 +1,10 @@
 import os
 import sys
 import argparse
+import subprocess
 from pathlib import Path
 from termcolor import colored
-from flake.bank import Bank
-from flake.flake import Flake
+import flake.src.flake as flake
 
 def print_provenance_menu(menu):
     for key in menu.keys():
@@ -58,7 +58,7 @@ def run(database, scripts, actions, num_loops, level):
             Runs a list of scripts and gathers provenance on each one
         '''
         action_str = ",".join(actions)
-        graph = Flake(database.make_flake(action_str), actions)
+        graph = flake.Flake(database.make_flake(action_str), actions)
         database.connect_mqtt_client(graph)
         if level == 1:
             subprocess.run(["sudo", "camflow", "-a", "true"])
