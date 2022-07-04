@@ -1,6 +1,25 @@
 Statistics for graph: 3
-number of nodes: 0
-number of node types: 0
-number of edges: 0
-number of edge types: 0
-number of distinct edge schemas: 0
+Actions taken: fileread
+number of nodes: 11
+number of node types: 2
+activity - 2
+entity - 9
+number of edges: 11
+number of edge types: 8
+memory_read - 1
+read - 1
+write - 1
+memory_write - 1
+version_activity - 1
+sh_read - 4
+version_entity - 1
+free - 1
+number of distinct edge schemas: 8
+activity-memory_read-entity - 1
+activity-read-entity - 1
+entity-write-activity - 1
+entity-memory_write-activity - 1
+activity-version_activity-activity - 1
+entity-sh_read-entity - 4
+entity-version_entity-entity - 1
+entity-free-entity - 1

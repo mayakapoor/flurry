@@ -1,0 +1,3 @@
+xssdom,xssreflected,commandinjection,message,ping
+2
+1

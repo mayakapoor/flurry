@@ -1,18 +1,21 @@
 #from pyfiglet import Figlet
 import os
+import host
 import warnings
-from termcolor import colored
 from pathlib import Path
-from prov.database import ProvDB
-import prov.database as prov
-import util.scriptrunner as sr
+
+from flake.filters.camflow.w3cfilter import W3CFilter
+from flake.bank import Bank
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 #config options
-REQUIRES_DRIVER = False
 SAVE_TO_DISK = True
-GENERATE_TYPE_GRAPH = True
+
+#prov levels
+provenance_levels = {
+    1 : 'whole system'
+}
 
 ## Start menu coding
 attack_menu_options = {
@@ -29,22 +32,23 @@ benign_menu_options = {
     'custombehavior': 'Use My Own Custom Behavior'
 }
 
-def print_attack_menu():
-    for key in attack_menu_options.keys():
-        print(colored(str(key + '--' + attack_menu_options[key]), 'red'))
-
-def print_benign_menu():
-    for key in benign_menu_options.keys():
-        print(colored(str(key + '--' + benign_menu_options[key]), 'green'))
-
 def main():
-    #welcome()
-    print_attack_menu()
-    print_benign_menu()
+    cfg_txt = host.read_input_file()
+    cfg_lines = cfg_txt.split("\n")
+
+    # Action getting
+    cfg_custom_count = 0
     try:
-        action_str = input('Select one or more attacks to run in a comma-separated list: ')
+        if cfg_txt == "":
+            host.print_attack_menu(attack_menu_options)
+            host.print_benign_menu(benign_menu_options)
+            action_str = input('Select one or more attacks to run in a comma-separated list: ')
+        else:
+            action_str = cfg_lines[0]
+            print(action_str)
         actions = action_str.split(",")
         scripts = []
+        term_customs = [] # For writing config files
         for action in actions:
             script = Path("")
             if action == "synflood":
@@ -60,11 +64,18 @@ def main():
             elif action == "localexecution":
                 script = Path(os.getcwd() + "/scripts/localexec.py")
             elif action == "customattack" or action == "custombehavior":
-                while (not script.is_file()):
-                    script = Path(input('Provide the full path to your custom script: '))
-                    if (not script.is_file()):
-                        print('Invalid file path provided. Try again.')
-                action = str(input("Provide a single word identifier for this custom execution (i.e. \'bruteforce\')")).split(" ")[0]
+                if cfg_txt == "":
+                    local_path = ""
+                    while (not script.is_file()):
+                        local_path = input('Provide the local path to your custom script: ')
+                        script = Path(os.getcwd() + "/" + local_path)
+                        if (not script.is_file()):
+                            print('Invalid file path provided. Try again.')
+                    term_customs.append(local_path)
+                    #action = str(input("Provide a single word identifier for this custom execution (i.e. \'bruteforce\')")).split(" ")[0]
+                else:
+                    cfg_custom_count += 1
+                    script = Path(os.getcwd() + "/" + cfg_lines[cfg_custom_count])
             else:
                 print('Invalid option ' + action + ' provided.')
             if script.is_file():
@@ -72,24 +83,14 @@ def main():
     except Exception as e:
         print(e)
 
-    num_loops = int(input("Execution loop is constructed. How many iterations would you like to make? "))
-    prov.print_menu()
-    prov_level = int(input("Select provenance capture granularity: "))
-    while prov_level < 1 or prov_level > 4:
-        prov_level = int(input("Invalid option selected. Try again."))
-    i = 0
+    # Other options
+    host.print_provenance_menu(provenance_levels)
+    prov_level = host.get_level(cfg_txt, cfg_lines, cfg_custom_count)
+    num_loops = host.get_loops(cfg_txt, cfg_lines, cfg_custom_count)
 
-    print("FINE = CamFlow-provided node and edge types, COARSE = W3C-PROV model types")
-    edge_gran = str(input("Select FINE (f) or COARSE (c) granularity for edge types: " )).lower()
-    while edge_gran != 'c' and edge_gran != 'f':
-        edge_gran = str(input("Invalid option selected. Try again.")).lower()
-    node_gran = str(input("Select FINE (f) or COARSE (c) granularity for node types: " )).lower()
-    while node_gran != 'c' and node_gran != 'f':
-        node_gran = str(input("Invalid option selected. Try again.")).lower()
-
-    database = ProvDB("data/camflow.db", prov_level, edge_gran, node_gran)
-    while i < num_loops:
-        sr.runList(database, scripts, REQUIRES_DRIVER, SAVE_TO_DISK)
-        i += 1
+    filter = W3CFilter()
+    host.run(Bank(filter), scripts, actions, num_loops, prov_level)
+    if cfg_txt == "":
+        host.save_config(action_str, term_customs, num_loops, prov_level)
 
 main()

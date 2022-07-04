@@ -1,0 +1,4 @@
+xssreflected,customattack,xssstored
+scripts/custom1.py
+2
+1

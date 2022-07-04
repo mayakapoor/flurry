@@ -31,6 +31,7 @@ def setupDriver():
     chromeOptions = Options()
     chromeOptions.add_argument("--no-sandbox")
     chromeOptions.add_argument("--disable-dev-shm-using")
+    chromeOptions.add_argument("--autoplay-policy=no-user-gesture-required")
     driver = webdriver.Chrome(executable_path="/usr/bin/chromedriver", chrome_options=chromeOptions)
     login(driver)
     security(driver)
