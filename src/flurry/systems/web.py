@@ -1,19 +1,16 @@
 #from pyfiglet import Figlet
 import os
-import machines.host as host
 import warnings
 from pathlib import Path
 import util.driversetup as ds
 
 import flurryflake
-import flurryflake.filters.camflow as camflow
-from machines.host import Host
+from . import host
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 #config options
 SAVE_TO_DISK = True
-CAMFLOW_ENABLED = True
 
 #prov levels
 #provenance_levels = {
@@ -44,11 +41,9 @@ benign_menu_options = {
     'custombehavior': 'Use My Own Custom Behavior'
 }
 
-class FlurryWeb(Host):
-    def __init__(self, cfg_path=None):
-        global CAMFLOW_ENABLED
-        if CAMFLOW_ENABLED:
-            Host.__init__(self, attack_menu_options, benign_menu_options, camflow.W3CFilter())
+class FlurryWeb(host.Host):
+    def __init__(self, filter, cfg_path=None):
+        host.Host.__init__(self, attack_menu_options, benign_menu_options, filter)
         cfg_txt = host.read_input_file(cfg_path)
         cfg_lines = cfg_txt.split("\n")
         cfg_custom_count = 0

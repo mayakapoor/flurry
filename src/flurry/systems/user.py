@@ -1,29 +1,35 @@
+#from pyfiglet import Figlet
 import os
 import warnings
 from pathlib import Path
 
 import flurryflake
 from . import host
-from host import Host
 
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 #config options
 SAVE_TO_DISK = True
-
+CAMFLOW_ENABLED = True
 ## Start menu coding
 attack_menu_options = {
+    'synflood': 'Execute SYN Flood Attack',
+    'dataexfil': 'Execute Data Exfiltration Attack',
+    'backdoor': 'Execute Remote Code Execution Attack',
     'customattack': 'Use My Own Attack'
 }
 
 benign_menu_options = {
+    'ping': 'Ping Local Host',
+    'fileread': 'read file',
+    'localexecution': 'Execute script locally',
     'custombehavior': 'Use My Own Custom Behavior'
 }
 
-class FlurrySDN(Host):
+class FlurryUser(host.Host):
     def __init__(self, filter, cfg_path=None):
-        Host.__init__(self, attack_menu_options, benign_menu_options, filter)
+        host.Host.__init__(self, attack_menu_options, benign_menu_options, filter)
         cfg_txt = host.read_input_file(cfg_path)
         cfg_lines = cfg_txt.split("\n")
         cfg_custom_count = 0
@@ -41,7 +47,19 @@ class FlurrySDN(Host):
             term_customs = [] # For writing config files
             for action in self.actions:
                 script = Path("")
-                if action == "customattack" or action == "custombehavior":
+                if action == "synflood":
+                    script = Path(os.getcwd() + "/scripts/synflood.py")
+                elif action == "dataexfil":
+                    script = Path(os.getcwd() + "/scripts/dataexfil.py")
+                elif action == "backdoor":
+                    script = Path(os.getcwd() + "/scripts/backdoor.py")
+                elif action == "ping":
+                    script = Path(os.getcwd() + "/scripts/ping.py")
+                elif action == "fileread":
+                    script = Path(os.getcwd() + "/scripts/fileread.py")
+                elif action == "localexecution":
+                    script = Path(os.getcwd() + "/scripts/localexec.py")
+                elif action == "customattack" or action == "custombehavior":
                     if cfg_txt == "":
                         local_path = ""
                         while (not script.is_file()):
