@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "flurry"
+version = "0.1.0"
+authors = [
+  { name="Maya Kapoor", email="mkapoor1@uncc.edu" },
+]
+description = "Cyber attack and benign behavior automation for systems designed for data provenance capture"
+readme = "README.rst"
+license = { file="LICENSE" }
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/mayakapoor/flurry"
+#"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"

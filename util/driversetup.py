@@ -1,3 +1,6 @@
+import psutil
+import subprocess as sp
+import time
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
@@ -28,6 +31,20 @@ def security(driver):
     # End DVWA set to low
 
 def setupDriver():
+
+    SERVER_RUNNING = False
+    for process in psutil.process_iter():
+        if '/opt/lampp/bin/' in process.name():
+            SERVER_RUNNING = True
+            print("Web server is running, connection now...")
+    if not SERVER_RUNNING:
+        print("Starting Apache Web Server...")
+        startCommand = "sudo /opt/lampp/lampp start"
+        proc = sp.Popen(startCommand.split(), stdout=sp.PIPE)
+        output, error = proc.communicate()
+        time.sleep(3)
+
+
     chromeOptions = Options()
     chromeOptions.add_argument("--no-sandbox")
     chromeOptions.add_argument("--disable-dev-shm-using")

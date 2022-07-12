@@ -1,6 +1,6 @@
-# flake
+# flurry
 
-The graph generation component of provenance graph representation learning - the Flake library.
+Automated attack and benign simulation of behavior for various systems.
 
 ## Getting started
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.com/crest-lab/provenance/prov-grl/flake.git
+git remote add origin https://gitlab.com/crest-lab/provenance/prov-grl/flurry.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.com/crest-lab/provenance/prov-grl/flake/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.com/crest-lab/provenance/prov-grl/flurry/-/settings/integrations)
 
 ## Collaborate with your team
 
