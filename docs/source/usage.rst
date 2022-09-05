@@ -6,17 +6,14 @@ Usage
 Installation
 ------------
 
-To use Flake, first install it using pip:
+To use Flurry, first install it using pip:
 
 .. code-block:: console
 
-   (.venv) $ pip install flake
+   (.venv) $ pip install flurry
 
-Filtering provenance
---------------------
+Hosts
+------
 
-Creating graphs
-----------------
-
-Analyzing output
-----------------
+Provenance Capture Tools
+--------------------------

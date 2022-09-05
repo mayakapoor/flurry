@@ -1,7 +1,8 @@
-Welcome to Flake's documentation!
+Welcome to Flurry's documentation!
 ===================================
 
-**Flake** (/lu'make/) is a library for parsing provenance data and creating graphs for machine learning and causality analysis.
+**Flurry** (/lu'make/) is an automated framework for simulating host attach and benign behavior for machine learning and causality analysis.
+Provenance and system log data may be captured and stored, and turned into graphs.
 
 Check out the :doc:`usage` section for further information, including
 how to :ref:`installation` the project.

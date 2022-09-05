@@ -2,7 +2,7 @@
 
 # -- Project information
 
-project = 'Flake'
+project = 'Flurry'
 copyright = '2022, mayakapoor'
 author = 'Maya Kapoor'
 
