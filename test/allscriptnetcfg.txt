@@ -1,0 +1,5 @@
+synflood,dataexfil,backdoor,ping,fileread,localexecution
+1
+1
+c
+c

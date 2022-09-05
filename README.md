@@ -1,17 +1,18 @@
-# flurry
+## Flurry
+A fully automated framework to simulate host behavior and capture data provenance and system behavior for graph generation and representation learning.
 
-Automated attack and benign simulation of behavior for various systems.
+## Description
+Flurry is a simulation framework for different types of systems that researchers may want to gather provenance data from. Flurry comes equipped with tools for provenance capture and provenance graph generation. Using Flurry, researchers may run either prewritten attack or benign behavior scripts, capture these system processes and accesses, and generate graphs from them, or run custom scripts. The framework is highly customizable so that nearly any contrivable scenario can be experimented with and tested.
 
-## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Installation
+To make the Flurry installation process faster and less prone to mistakes, automatic install scripts are now provided. Two options are available: The first requires a premade Fedora or Ubuntu VM, while the second uses Hashicorp Packer to create one automatically.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Option 1: Flurry installer
 
-## Add your files
+This option assumes you have a working Fedora 35 or Ubuntu 22.04 Desktop VM in VirtualBox.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+Installer scripts are available for Fedora 35 and Ubuntu 22.04. Other version numbers are unlikely to work without modifications, so make sure to create a virtual machine with one of these two operating systems. Currently, the scripts reside in the folder install-scripts/<distro> in this repo. Each distro folder contains the install script and a folder called "Packer". The Packer folder is NOT necessary for this option and can be safely ignored.
 
 ```
 cd existing_repo
@@ -20,73 +21,142 @@ git branch -M main
 git push -uf origin main
 ```
 
-## Integrate with your tools
+chmod +x flurry-fedora.sh
 
 - [ ] [Set up project integrations](https://gitlab.com/crest-lab/provenance/prov-grl/flurry/-/settings/integrations)
 
-## Collaborate with your team
+Then, run it with:
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+./flurry-fedora.sh
 
-## Test and Deploy
 
-Use the built-in continuous integration in GitLab.
+You will need to enter your password once, and the installation should be completely automatic from that point on. This script should NOT be run with sudo.
+    After the script finishes, reboot the system. Hold shift during the VirtualBox splash screen to access the GRUB boot menu and make sure that the selected option has the word "camflow" in it. If it's the default option (which it should be), you should be able to let Virtualbox skip the boot menu from now on.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+For Ubuntu:
+    Download the flurry-ubuntu.sh script and place it in your Ubuntu VM's /home/<user> directory
+    Download all 8 of the deb files in install-scripts/Ubuntu and place them in the VM's /tmp directory. The install script will install all of them automatically.
+    Open a terminal in the /home/<user> directory and give the script permission to execute with the command:
 
-***
+chmod +x flurry-ubuntu.sh
 
-# Editing this README
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+Then, run it with:
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+./flurry-ubuntu.sh
 
-## Name
-Choose a self-explaining name for your project.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+    As with the Fedora script, you should only need to enter your password once. This script should NOT be run with sudo.
+    	After the script finishes, reboot the system. Hold shift during the Virtualbox splash screen to access the GRUB boot menu and select "Advanced Options for Ubuntu", then the option that has the word "camflow" in it. If these options are the default (they should be), you can let Virtualbox skip the boot menu from now on.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Option 2: Packer
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+This option is a bit more complex, but is also more customizable and does not require you to make a virtual machine in advance (Packer will make one automatically)
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+First, install packer: https://www.packer.io/downloads
+
+Currently, the packer templates reside in the folder PROJ-SIS-CCI-CREST/Research/Prov-GRL/install scripts/<distro>/Packer in the shared Google Drive folder. Download the Packer folder for your desired Linux distro.
+
+Open a terminal in the folder you just downloaded. You should be in the same folder as the <distro>-server.pkr.hcl file
+
+Build the template. If you're using a Linux host, the command for the Fedora VM template is:
+
+packer build -var-file=fedora35.pkrvars.hcl -var 'vm_name=flurry-fedora' -var 'provider_name=virtualbox' fedora-server.pkr.hcl
+
+(this is all one line)
+
+and the command for Ubuntu is:
+
+packer build -var-file=ubuntu22.pkrvars.hcl -var 'vm_name=flurry-ubuntu' -var 'provider_name=virtualbox' ubuntu-server.pkr.hcl
+
+
+The build process should be automatic from there. When the build is finished, all VM windows will be closed and the results will be outputted to the "build" directory
+
+To create the VM, open up virtualbox, choose "Tools" on the left sidebar, then "Import" on the top. Navigate to the build folder and choose the ovf file that Packer created. Choose your import specs. The selected options should be enough to prevent crashes, but you may choose to use more or less cores and RAM depending on the capabilities of your host machine.
+
+Wait for Virtualbox to finish importing, then start the new VM. The password for the user "cyber" is ITIS6010
+
+## Provenance Capture Tools
+
+CamFlow
+
+CamFlow is a Linux security module designed for fine-grained, whole-system provenance capture. The module works by using hooks to monitor security access in the kernel space as well as NetFilter hooks to capture network provenance. These are passed via the CamFlow daemon to user-space, where it may be conveyed to a log file, piped to a storage back-end, or conveyed via message bus to some other interface. There are a number of configuration options both for the application and daemon in order to fine-tune the provenance capture to your liking. The system may also be configured for whole-system capture or target capture for specific files and/or processes.
+
+sysdig (upcoming feature)
+
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+The FLURRY virtual machine is set up with a user profile and password. The password can be used for sudo/root permissions. If the virtual machine was generated by packer scripts, this is the default login information:
+
+Username: cyber
+Password: ITIS6010
+
+The GUI is currently missing from Flurry v5.0. Instead, to start Flurry, open a terminal in /home/cyber/flurry Then, run the following command:
+
+conda activate flurryenv
+
+
+This will start the conda environment and give Flurry access to the python packages it needs to run. After initializing the conda environment once, you will not need to do so again until the terminal window is closed and reopened.
+
+For browser-based attacks and behaviors, run this command:
+
+python3 webhost.py
+
+
+For network-based attacks and behaviors, run this command instead:
+
+python3 networkhost.py
+
+
+From there, select any number of attacks, behaviors, and scripts, then set the iteration count, provenance capture scope, and the convention to use for what constitutes a node and an edge. Once all the inputs have been made, Flurry should proceed automatically.
+
+Note: In the browser-based attacks, the DVWA web page may fail to show up, even if the webserver is running. To fix it, access the page http://127.0.0.1/setup.php in a web browser and click the button at the bottom of the page to set up the DVWA’s SQL database. Then, run Flurry again.
+
+## Advanced Usage
+Advanced Execution
+Custom Scripts
+In addition to the 18 total attack and benign routines, Flurry supports custom scripts. The files in the scripts folder, which handle all the default routines, follow the same format as custom scripts and may be used as templates
+
+Input Configuration
+Flurry can be run using input configuration files. To save the input given for a run as a file, answer the prompt after Flurry has finished executing. To rerun the same inputs, simply start Flurry again and enter the local path to the config file. If a valid config file is provided, no further input will be required.
+
+A typical input configuration file looks like this:
+xssdom,xssreflected,commandinjection,message,ping
+2
+1
+c
+f
+
+
+Functionally, this is just the set of inputs to use when responding to the prompts. The first line is a comma-separated list of attacks to run, the second is the number of iterations, the third is the provenance capture scope (1 is “whole system”), and lines four and five are the edge and node types, respectively. If the input involves custom scripts, they are added after the list of attacks, one line at a time:
+
+sqlinjection,customattack,customattack,custombehavior
+scripts/custom1.py
+scripts/custom2.py
+scripts/anothercustom.py
+1
+1
+c
+f
+
 
 ## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+For support, please contact: mayakapoor99@gmail.com.
 
 ## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Upcoming features include:
+-- sysdig graph generation support
+-- GUI for running Flurry
+-- improved documentation
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+Contributions such as additional host configurations or filters for graph generation are welcome!
 
 ## Authors and acknowledgment
 Show your appreciation to those who have contributed to the project.
 
 ## License
-For open source projects, say how it is licensed.
+Licensed with MIT Open License.
 
 ## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Continuing to be developed.

@@ -1,0 +1,5 @@
+xssstored,xssreflected,xssdom,commandinjection,sqlinjection,bruteforce,message,submit,query,ping,databaseentry,login
+1
+1
+c
+c

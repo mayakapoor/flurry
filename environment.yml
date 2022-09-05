@@ -62,6 +62,7 @@ dependencies:
   - zstd=1.5.2=ha4553b6_0
   - pip:
     - dgl==0.8.0.post1
+    - flurryflake==0.1.5
     - networkx==2.8.4
     - numpy==1.23.0
     - orjson==3.7.5

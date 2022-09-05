@@ -1,0 +1,45 @@
+#cloud-config
+autoinstall:
+  version: 1
+  locale: en_US
+  keyboard:
+    layout: en
+    variant: us
+  storage:
+    layout:
+      name: lvm
+  identity:
+    hostname: flurry-ubuntu
+    username: cyber
+    password: "$6$rounds=4096$SrLsGCQT1rmm10B$T86e2PTwqhC/4kdmheH5qDP1j0mFRuXd34VQjlxp/EjA2tOsOMpILnhbztPGCZ1mwRAqxLjvjBDdQuvD5QiMZ0"
+  ssh:
+    install-server: true
+    allow-pw: true
+  user-data:
+    disable_root: false
+#  apt:
+#    preserve_sources_list: false
+#    primary:
+#        - arches: [i386, amd64]
+#          uri: "http://us.archive.ubuntu.com/ubuntu"
+#        - arches: [default]
+#          uri: "http://us.ports.ubuntu.com/ubuntu-ports"
+#    geoip: false
+#  packages:
+#    - gcc
+#    - make
+#    - perl
+#    - ubuntu-desktop
+    
+  early-commands:
+    - systemctl stop ssh
+    - ip link set enp0s3 down
+  late-commands:
+    - 'sed -i "s/dhcp4: true/&\n      dhcp-identifier: mac/" /target/etc/netplan/00-installer-config.yaml'
+    - echo 'cyber ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/cyber
+    - curtin in-target --target=/target -- ip link set enp0s3 up
+    - 'echo "network:\n  version: 2\n  renderer: networkd\n  ethernets:\n    enp0s3:\n      dhcp4: true" > /target/etc/netplan/99_config.yaml'
+    - curtin in-target --target=/target -- netplan apply
+    #- systemctl start ssh
+    
+    
