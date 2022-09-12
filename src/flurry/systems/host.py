@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 from termcolor import colored
 import flurryflake
-from flurryflake import Snowbank
+from flurryflake import snowbank
 
 class Host():
     def __init__(self, attacks, benigns, filter):
