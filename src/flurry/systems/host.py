@@ -6,7 +6,7 @@ import subprocess
 from pathlib import Path
 from termcolor import colored
 import flurryflake
-from flurryflake import FlurryBank
+from flurryflake import Snowbank
 
 class Host():
     def __init__(self, attacks, benigns, filter):
@@ -14,12 +14,7 @@ class Host():
         self.benign_menu = benigns
         self.actions = []
         self.filter = filter
-        self.bank = FlurryBank(filter)
-    #   self.provenance_levels = levels
-
-    #def print_provenance_levels():
-    #    for key in self.provenance_levels.keys():
-    #        print(colored(str(str(key) + '--' + self.provenance_levels[key]), 'magenta'))
+        self.bank = Snowbank(filter)
 
     def print_attacks(self):
         for key in self.attack_menu.keys():
@@ -31,13 +26,13 @@ class Host():
 
     def run(self, scripts, num_loops):
         i = 0
+        self.bank.connect_client()
         while i < num_loops:
             '''
                 Runs a list of scripts and gathers provenance on each one
             '''
-            graph = self.bank.make_flake(self.actions)
-            self.bank.connect_client(graph)
-            for script in scripts:
+            for action,script in zip(self.actions, scripts):
+                graph = self.bank.generate(action)
                 try:
                     print("running " + str(script))
                     fileRead = open(script).read()
@@ -45,8 +40,9 @@ class Host():
                 except FileNotFoundError as e:
                     print(e)
                     print("Can't open " + str(script))
-            self.bank.disconnect_client(graph)
+                self.bank.save(graph)
             i += 1
+        self.bank.disconnect_client()
 
     def save(self, action_str, term_customs, num_loops):
         fn = input("Enter filename to save this configuration (cwd = " + os.getcwd() + "; leave blank to not save config): ")
@@ -67,17 +63,6 @@ def read_input_file(f):
             sys.exit()
         cfg_txt = open(cfg_path).read()
     return cfg_txt
-
-#def get_level(cfg_txt, cfg_lines, cfg_custom_count):
-#    prov_level = 1
-#    if cfg_txt == "":
-#        prov_level = int(input("Select provenance capture granularity: "))
-#        while prov_level < 1 or prov_level > 4:
-#            prov_level = int(input("Invalid option selected. Try again."))
-#    else:
-#        prov_level = int(cfg_lines[2 + cfg_custom_count])
-#        print(prov_level)
-#    return prov_level
 
 def get_loops(cfg_txt, cfg_lines, cfg_custom_count):
     num_loops = 1

@@ -11,7 +11,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 
 #config options
 SAVE_TO_DISK = True
-CAMFLOW_ENABLED = True
+
 ## Start menu coding
 attack_menu_options = {
     'synflood': 'Execute SYN Flood Attack',
