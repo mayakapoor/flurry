@@ -2,10 +2,8 @@
 import os
 import warnings
 from pathlib import Path
-import util.driversetup as ds
-
-import flurryflake
-from . import host
+from . import util.driversetup as ds
+import host
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
 

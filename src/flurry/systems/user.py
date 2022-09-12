@@ -2,9 +2,7 @@
 import os
 import warnings
 from pathlib import Path
-
-import flurryflake
-from . import host
+import host
 
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
