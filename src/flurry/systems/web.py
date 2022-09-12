@@ -2,7 +2,8 @@
 import os
 import warnings
 from pathlib import Path
-from . import util.driversetup as ds
+import util
+import util.driversetup as ds
 import host
 
 warnings.filterwarnings("ignore", category=DeprecationWarning)
