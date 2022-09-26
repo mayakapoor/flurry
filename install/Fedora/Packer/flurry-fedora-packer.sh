@@ -176,6 +176,8 @@ sudo dnf -y install hydra
 echo "installing hping3..."
 sudo dnf -y install hping3
 
+echo "installing sysdig...:
+sudo dnf -y install sysdig
 
 echo "setting camflow kernel as default..."
 GRUBBY_OUT=$(sudo grubby --info=ALL | grep camflow | grep kernel)

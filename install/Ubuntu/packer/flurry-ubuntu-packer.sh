@@ -193,6 +193,9 @@ sudo apt install -y hydra
 echo "installing hping3..."
 sudo apt install -y hping3
 
+echo "installing sysdig..."
+sudo apt install -y sysdig
+
 echo "Setting camflow kernel as default..."
 
 sudo sed -i "s/GRUB_DEFAULT=0/GRUB_DEFAULT=1>0/" /etc/default/grub
