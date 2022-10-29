@@ -20,13 +20,14 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 SAVE_TO_DISK = True
 
 class Host():
-    def __init__(self, cfg_path=None):
+    def __init__(self, cfg_path=None, disk_path="graphs"):
         self.camflow = snowbank.Snowbank(camflow.W3CFilter())
         self.sysdig = None
         self.driver = webutil.setupDriver()
-        self.topic = ""
+        self.topic = "provenance/flake/"
         self.output_loc = os.getcwd() + "/output"
         self.graphs = {}
+        self.disk_path = disk_path
 
     def __del__(self):
         self.driver.close()
@@ -56,28 +57,30 @@ class Host():
     def stop_recording(self):
         if self.camflow is not None:
             self.camflow.disconnect_client()
-            if self.graphs["camflow"] is not None:
+            if "camflow" in self.graphs:
                 self.camflow.finalize(self.graphs["camflow"])
             else:
                 print("WARNING: no CamFlow graph recorded to save.")
         if self.sysdig is not None:
             self.sysdig.disconnect_client()
-            if self.graphs["sysdig"] is not None:
+            if "sysdig" in self.graphs:
                 self.sysdig.finalize(self.graphs["sysdig"])
             else:
                 print("WARNING: no SysDig graph recorded to save.")
 
     def publish_to_mqtt(self, format):
-        if self.camflow is not None:
-            self.camflow.publish(self.topic, "")
-        if self.sysdig is not None:
-            self.sysdig.publish(self.topic, "")
+        if "camflow" in self.graphs:
+            print("sending test message...")
+            self.camflow.client.publish(self.topic, self.camflow.getFlake(self.graphs["camflow"]).to_json())
+        if "sysdig" in self.graphs:
+            self.sysdig.client.publish(self.topic, "the test message works!")
 
     def publish_to_file(self, format):
-        if self.camflow is not None:
+        if self.graphs:
             print("to file")
-        if self.sysdig is not None:
-            print("to file")
+
+    def delete_graphs(self):
+        self.graphs = {}
 
     def commandinjection(self):
         self.driver.get("http://127.0.0.1/vulnerabilities/exec/")
