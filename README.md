@@ -16,7 +16,7 @@ Installer scripts are available for Fedora 35 and Ubuntu 22.04. Other version nu
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.com/crest-lab/provenance/prov-grl/flurry.git
+git remote add origin https://github.com/mayakapoor/flurry.git
 git branch -M main
 git push -uf origin main
 ```
